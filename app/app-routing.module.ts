@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { LanguageNotesComponent } from './language-note/language-notes.component';
+import { LanguageNoteEditComponent } from './language-note/language-note-edit.component';
+
 import { HeroDetailComponent } from './heroes/hero-detail.component';
 
 const routes: Routes = [
@@ -25,6 +27,14 @@ const routes: Routes = [
     component: HeroesComponent
   },
   {
+    path: 'new-note',
+    component: LanguageNoteEditComponent
+  },
+  {
+    path: 'edit-note/:id',
+    component: LanguageNoteEditComponent
+  },
+  {
     path: 'language-notes',
     component: LanguageNotesComponent
   }
@@ -36,4 +46,9 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 
-export const routedComponents = [DashboardComponent, HeroesComponent, HeroDetailComponent, LanguageNotesComponent];
+export const routedComponents = [
+  DashboardComponent, 
+  HeroesComponent, 
+  HeroDetailComponent, 
+  LanguageNotesComponent,
+  LanguageNoteEditComponent];

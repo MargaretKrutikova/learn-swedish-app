@@ -15,12 +15,12 @@ var InMemoryStorageService = (function () {
                 "usages": ["jag är inspirerad av någon"]
             },
             {
-                "id": 4,
+                "id": 3,
                 "note": "jag ska tillägna dagen med att",
                 "translations": ["i will make use of the day by doing"]
             },
             {
-                "id": 5,
+                "id": 4,
                 "note": "att tillägna något",
                 "explanations": ["ta något tillgodo", "to make use of"]
             }

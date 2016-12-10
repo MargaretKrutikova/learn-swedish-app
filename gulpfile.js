@@ -1,6 +1,9 @@
 var gulp = require('gulp');
 var del = require('del');
 var $ = require('gulp-load-plugins')({ lazy: true });
+var sass = require('gulp-sass');
+   // autoprefixer = require('gulp-autoprefixer'),
+var browserSync = require('browser-sync').create();
 var lite = require('lite-server');
 
 var config = {
@@ -16,11 +19,43 @@ var config = {
     jit: 'index-jit.html'
   },
   dest: './dist',
-  root: './'
+  root: './',
+  cssCompiled: './styles/compiled/',
+  scssMain: './styles/main.scss',
 };
 
 gulp.task('help', $.taskListing);
 gulp.task('default', ['help']);
+
+//-------------- watch css -------------------------------------
+
+gulp.task('watch-css', function() {
+  gulp.watch(['styles/**/*.scss', '!styles/compiled/**/*.css'], ['css']);
+});
+
+gulp.task('css', function(done) {
+	log('Compiling Sass to Css');
+
+  return gulp.src(config.scssMain, {'name': 'css', 'verbose': true})
+   .pipe(sass().on('error', sass.logError))
+   //.pipe(autoprefixer({ browsers: ['last 2 versions', 'ie 10']  }))
+   .pipe(gulp.dest(config.cssCompiled))
+   .pipe(browserSync.reload({stream:true}));
+});
+
+gulp.task('clean-css', function(done) {
+   // var files = config.cssCompiled + '**/*.css';
+   // clean(files, done);
+});
+
+gulp.task('serve-css', ['watch-css'], function(done) {
+    // attach browser sync to already existing port 8000
+    browserSync.init({
+      proxy: 'http://localhost:8000'
+    });
+});
+
+//--------------------------------------------------------------
 
 gulp.task('gzip', function () {
   log('gzipping');
