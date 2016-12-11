@@ -1,13 +1,11 @@
-# learn-swedish-app
-=======
 # Getting Started
 
-Super simple Angular 2 app with 1 module and 2 routes 
+Angular 2 app that will help (hopefully) me learn swedish faster. 
 
 ## Get the Code
 ```
-git clone https://github.com/johnpapa/angular2-tour-of-heroes.git toh
-cd toh
+git clone https://github.com/MargaretKrutikova/learn-swedish-app.git learn-swedish-app
+cd learn-swedish-app
 npm i
 ```
 
@@ -18,6 +16,16 @@ Runs the TypeScript compiler and launches the app
 ```
 npm start
 ```
+
+### Running css injector
+
+Creates a new instance of the app in a separate tab and allows modifying sass with instant 
+injecting of the modifications without full page reload. Speeds up development of the styling part
+of the app.
+
+```
+npm serve-css
+``` 
 
 ### Ahead of Time (AoT) Compilation 
 
