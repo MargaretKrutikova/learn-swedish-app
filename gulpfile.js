@@ -33,6 +33,12 @@ gulp.task('watch-css', function() {
   gulp.watch(['styles/**/*.scss', '!styles/compiled/**/*.css'], ['css']);
 });
 
+gulp.task('watch-html', function() {
+  gulp.watch(['app/**/*.html'], function() {
+    browserSync.reload();
+  });
+});
+
 gulp.task('css', function(done) {
 	log('Compiling Sass to Css');
 
@@ -48,7 +54,7 @@ gulp.task('clean-css', function(done) {
    // clean(files, done);
 });
 
-gulp.task('serve-css', ['watch-css'], function(done) {
+gulp.task('serve-css', ['watch-css', 'watch-html'], function(done) {
     // attach browser sync to already existing port 8000
     browserSync.init({
       proxy: 'http://localhost:8000'
