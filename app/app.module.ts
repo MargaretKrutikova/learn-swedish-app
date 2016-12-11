@@ -6,6 +6,8 @@ import { HttpModule } from '@angular/http';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryStorageService } from '../api/in-memory-storage.service';
 
+import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
+
 import './rxjs-extensions';
 import { AppComponent } from './app.component';
 import { AppRoutingModule, routedComponents } from './app-routing.module';
@@ -14,6 +16,7 @@ import { LanguageNoteService } from './language-note/language-note.service';
 import { ExceptionService } from './common/exception.service';
 
 import { HeroSearchComponent } from './heroes/hero-search.component';
+import { LanguageNoteDetailComponent } from './language-note/language-note-detail.component';
 
 @NgModule({
   imports: [
@@ -21,11 +24,13 @@ import { HeroSearchComponent } from './heroes/hero-search.component';
     FormsModule,
     AppRoutingModule,
     HttpModule,
+    Ng2Bs3ModalModule,
     InMemoryWebApiModule.forRoot(InMemoryStorageService, { delay: 600 })
   ],
   declarations: [
     AppComponent,
     HeroSearchComponent,
+    LanguageNoteDetailComponent,
     routedComponents
   ],
   providers: [

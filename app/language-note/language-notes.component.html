@@ -1,19 +1,26 @@
 
-<div>
-    <a routerLink="/new-note" routerLinkActive="active" mdl-colored="primary">Create new note</a>
-    <p>
-        <button>Button</button>
-    </p>
-</div>
-
-<div class='language-notes-container'>
-
-    <div *ngFor="let note of languageNotes" class="hero-element">
-        <span class="badge">{{note.id}}</span> {{note.note}}
+<section class="language-notes">
+    <section *ngIf="errorMessage">
+        {{errorMessage}}
+    </section>
+    <div>
+        <a routerLink="/new-note" routerLinkActive="active">Create new note</a>
     </div>
 
-    <section *ngIf="errorMessage">
-      {{errorMessage}}
-    </section>
-
-</div>
+    <div class='language-notes__list'>       
+        <div *ngFor="let note of languageNotes" class="language-notes__list__element">
+            <a class="view-complete-link" (click)="openDetails(note)">View complete</a>
+            <language-note-detail [note]="note"> </language-note-detail>            
+        </div> 
+    </div>
+    
+    <modal #noteDetailModal class="language-notes__details-modal">
+        <modal-header [show-close]="true">
+            {{selectedNote ? selectedNote.note : ""}}
+        </modal-header>
+        <modal-body>
+            <language-note-detail [note]="selectedNote" hideTitle="true"> </language-note-detail>
+        </modal-body>
+        <!--<modal-footer [show-default-buttons]="true"></modal-footer>-->
+    </modal>
+</section>

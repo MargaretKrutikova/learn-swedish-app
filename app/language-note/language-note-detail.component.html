@@ -1,0 +1,33 @@
+
+<div class="note-details" *ngIf="note">
+
+    <div class="note-details__title" *ngIf="!hideTitle"> {{note.note}} </div>
+
+    <div class="note-details__properties">
+        <span>{{note.type}}</span>
+        
+        <div class="note-details__translations" *ngIf="note.translations">
+            translations:
+            <span *ngIf="note.translations.length == 1">{{note.translations[0]}}</span>
+            <ul *ngIf="note.translations.length > 1">
+                <li *ngFor="let translation of note.translations">{{translation}}</li>
+            </ul>
+        </div>
+        
+        <div class="note-details__explanations" *ngIf="note.explanations">
+            explanations:
+            <span *ngIf="note.explanations.length == 1">{{note.explanations[0]}}</span>
+            <ul *ngIf="note.explanations.length > 1">
+                <li *ngFor="let explanation of note.explanations">{{explanation}}</li>
+            </ul>
+        </div>
+
+        <div class="note-details__usages" *ngIf="note.usages">
+            usages:
+            <span *ngIf="note.usages.length == 1">{{note.usages[0]}}</span>
+            <ul *ngIf="note.usages.length > 1">
+                <li *ngFor="let usage of note.usages">{{usage}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
