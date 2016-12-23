@@ -14,6 +14,13 @@
         </div> 
     </div>
     
+    <div class='language-notes__paginator'>
+        <span class='language-notes__paginator__page' *ngFor="let page of pages">
+            <a *ngIf="page != currentPage" (click)="getLanguageNotes(page)">{{page}}</a>
+            <span *ngIf="page == currentPage">{{page}}</span>
+        </span>
+    </div>
+
     <modal #noteDetailModal class="language-notes__details-modal">
         <modal-header [show-close]="true">
             {{selectedNote ? selectedNote.note : ""}}

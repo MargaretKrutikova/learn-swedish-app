@@ -7,11 +7,8 @@
         <span>{{note.type}}</span>
         
         <div class="note-details__translations" *ngIf="note.translations">
-            translations:
-            <span *ngIf="note.translations.length == 1">{{note.translations[0]}}</span>
-            <ul *ngIf="note.translations.length > 1">
-                <li *ngFor="let translation of note.translations">{{translation}}</li>
-            </ul>
+            <span *ngFor="let translation of note.translations; let i = index">{{translation}}<span *ngIf="i != note.translations.length - 1">,</span>
+            </span>
         </div>
         
         <div class="note-details__explanations" *ngIf="note.explanations">

@@ -21,19 +21,19 @@ export class InMemoryStorageService {
             { 
                 "id": 4, 
                 "note": "att ta i som ett djur", 
-                "explanations": ["(c) Anders, prat om marklyft"] 
+                "explanations": ["(c) Anders, träning"] 
             },
             { 
                 "id": 5, 
-                "note": "mottagning", 
-                "translations": ["reception"],
-                "explanations": ["mobiltäckning"],
-                "usages": [ "dålig mottagning (telefon)" ]
+                "note": "synvinkel", 
+                "translations": ["point of view"],
+                "usages": [ "från/ur min synvinkel" ]
             },
             { 
                 "id": 6, 
                 "note": "tillägna", 
-                "usages": ["jag ska tillägna dagen med att"] 
+                "usages": ["jag ska tillägna dagen med att"],
+                "explanations": ["i will make use of the day by doing"]  
             },
             { 
                 "id": 7, 
@@ -42,14 +42,41 @@ export class InMemoryStorageService {
             },
             { 
                 "id": 8, 
-                "note": "jag ska tillägna dagen med att", 
-                "translations": ["i will make use of the day by doing"] 
+                "note": "att tillägna något",
+                "explanations":  ["ta något tillgodo", "to make use of" ] 
             },
             { 
                 "id": 9, 
-                "note": "att tillägna något",
-                "explanations":  ["ta något tillgodo", "to make use of" ] 
-            }
+                "note": "att klumpa ihop", 
+                "translations" : ["lump together", "смешивать в кучу"] 
+            },
+            { 
+                "id": 10, 
+                "note": "ivrig, ivrigt", 
+                "translations" : ["eager", "zealous", "усердно"] 
+            },
+            { 
+                "id": 11, 
+                "note": "flitig", 
+                "translations" : ["diligent", "hard-working"] 
+            },
+            { 
+                "id": 12, 
+                "note": "ytlig", 
+                "translations" : ["external", "superficial", "поверхностный"] 
+            },
+             { 
+                "id": 13, 
+                "note": "petig", 
+                "translations" : ["мелочный"],
+                "explanations":  ["för noggrann", "pedantisk" ] 
+            },
+            { 
+                "id": 14, 
+                "note": "kräsen", 
+                "translations" : ["picky"],
+                "explanations":  ["om mat t.ex." ] 
+            },
         ];
 
         let heroes = [

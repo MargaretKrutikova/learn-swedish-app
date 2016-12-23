@@ -13,6 +13,17 @@
     }
 }
 
+.language-notes__paginator {
+    padding-top: 20px;
+    width: 30%;
+    text-align: center;
+}
+
+.language-notes__paginator__page {
+    padding: 5px;
+    a { cursor: pointer; }
+}
+
 .language-notes__list__element {
     padding-top: 10px;
     width: 30%;

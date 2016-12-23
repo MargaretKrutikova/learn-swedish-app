@@ -35,6 +35,10 @@ const routes: Routes = [
     component: LanguageNoteEditComponent
   },
   {
+    path: 'language-notes/:page',
+    component: LanguageNotesComponent
+  },
+   {
     path: 'language-notes',
     component: LanguageNotesComponent
   }
