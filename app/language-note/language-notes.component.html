@@ -7,18 +7,17 @@
         <a routerLink="/new-note" routerLinkActive="active">Create new note</a>
     </div>
 
+    <paginator [totalCountSubscription]="totalNotesChange" 
+                [itemsPerPage]="4" 
+                (pageChange)="getLanguageNotesPaginated($event)"
+                [currentPage]="currentPage">
+    </paginator>
+
     <div class='language-notes__list'>       
-        <div *ngFor="let note of languageNotes" class="language-notes__list__element">
+        <div *ngFor="let note of languageNotesPaginated" class="language-notes__list__element">
             <a class="view-complete-link" (click)="openDetails(note)">View complete</a>
             <language-note-detail [note]="note"> </language-note-detail>            
         </div> 
-    </div>
-    
-    <div class='language-notes__paginator'>
-        <span class='language-notes__paginator__page' *ngFor="let page of pages">
-            <a *ngIf="page != currentPage" (click)="getLanguageNotes(page)">{{page}}</a>
-            <span *ngIf="page == currentPage">{{page}}</span>
-        </span>
     </div>
 
     <modal #noteDetailModal class="language-notes__details-modal">

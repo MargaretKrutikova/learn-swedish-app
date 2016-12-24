@@ -1,0 +1,7 @@
+
+<div class='language-notes__paginator'>
+    <span class='language-notes__paginator__page' *ngFor="let page of pages">
+        <a *ngIf="page != currentPage" (click)="setPage(page)">{{page}}</a>
+        <span *ngIf="page == currentPage">{{page}}</span>
+    </span>
+</div>

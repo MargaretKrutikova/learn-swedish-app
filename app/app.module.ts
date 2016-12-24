@@ -14,6 +14,7 @@ import { AppRoutingModule, routedComponents } from './app-routing.module';
 import { HeroService } from './heroes/hero.service';
 import { LanguageNoteService } from './language-note/language-note.service';
 import { ExceptionService } from './common/exception.service';
+import { PaginatorComponent } from './common/paginator/paginator.component';
 
 import { HeroSearchComponent } from './heroes/hero-search.component';
 import { LanguageNoteDetailComponent } from './language-note/language-note-detail.component';
@@ -31,6 +32,7 @@ import { LanguageNoteDetailComponent } from './language-note/language-note-detai
     AppComponent,
     HeroSearchComponent,
     LanguageNoteDetailComponent,
+    PaginatorComponent,
     routedComponents
   ],
   providers: [
