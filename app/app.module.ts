@@ -7,6 +7,7 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryStorageService } from '../api/in-memory-storage.service';
 
 import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
+import { ValueProvider } from '@angular/core';
 
 import './rxjs-extensions';
 import { AppComponent } from './app.component';
@@ -19,6 +20,17 @@ import { PaginatorComponent } from './common/paginator/paginator.component';
 import { HeroSearchComponent } from './heroes/hero-search.component';
 import { LanguageNoteDetailComponent } from './language-note/language-note-detail.component';
 
+const WINDOW_PROVIDER: ValueProvider = {
+    provide: 'Window',
+    useValue: window
+};
+
+const NAVIGATOR_PROVIDER: ValueProvider = {
+    provide: 'Navigator',
+    useValue: navigator
+};
+
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -26,7 +38,7 @@ import { LanguageNoteDetailComponent } from './language-note/language-note-detai
     AppRoutingModule,
     HttpModule,
     Ng2Bs3ModalModule,
-    InMemoryWebApiModule.forRoot(InMemoryStorageService, { delay: 600 })
+    InMemoryWebApiModule.forRoot(InMemoryStorageService)
   ],
   declarations: [
     AppComponent,
@@ -38,7 +50,9 @@ import { LanguageNoteDetailComponent } from './language-note/language-note-detai
   providers: [
     HeroService,
     ExceptionService,
-    LanguageNoteService
+    LanguageNoteService,
+    WINDOW_PROVIDER,
+    NAVIGATOR_PROVIDER
   ],
   bootstrap: [AppComponent]
 })

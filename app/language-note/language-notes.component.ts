@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, EventEmitter, Inject } from '@angular/core';
 import { LanguageNote, LanguageNoteService } from './language-note.service';
 import { ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
 import { LanguageNoteDetailComponent } from './language-note-detail.component';
@@ -14,9 +14,9 @@ export class LanguageNotesComponent implements OnInit, OnDestroy {
     @ViewChild('noteDetailModal')
     modal: ModalComponent;
 
-    private subscription: Subscription;
     private languageNotes: LanguageNote[];
 
+    isMobileDevice: boolean = false;
     errorMessage: string;
     selectedNote: LanguageNote;
 
@@ -29,26 +29,27 @@ export class LanguageNotesComponent implements OnInit, OnDestroy {
 
     constructor(
         private languageNoteService: LanguageNoteService,
-        private activatedRoute: ActivatedRoute,
         private router: Router,
+        @Inject('Window') window: any
         ) { }
 
     ngOnInit() {
         this.getLanguageNotes(); 
-
-        // subscribe to router event
-        this.subscription = this.activatedRoute.params.subscribe(
-            (param: any) => { this.currentPage = param['page'] });
+        this.isMobileDevice = this.isMobile();
     }
 
     ngOnDestroy() {
-        // prevent memory leak by unsubscribing
-        this.subscription.unsubscribe();
     }
 
     openDetails(note: LanguageNote) {
         this.selectedNote = note;
         this.modal.open();
+    }
+
+    openDetailsIfMobile(note: LanguageNote) {
+        if (this.isMobileDevice) {
+            this.openDetails(note);
+        }
     }
 
     getLanguageNotesPaginated(page: number = 1) {
@@ -59,6 +60,14 @@ export class LanguageNotesComponent implements OnInit, OnDestroy {
         this.currentPage = page;
 
         this.router.navigate(['language-notes', this.currentPage ]);
+    }
+
+    private isMobile() : boolean {
+        if(window.innerWidth <= 800 && window.innerHeight <= 600) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     private getLanguageNotes() {

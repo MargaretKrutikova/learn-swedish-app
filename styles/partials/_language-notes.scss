@@ -1,3 +1,4 @@
+$list-border: 2px solid rgba(#00ACC1, 0.25);
 
 .language-notes {
     padding: 30px;
@@ -27,15 +28,13 @@
 .language-notes__list__element {
     padding-top: 10px;
     width: 30%;
-
     height: 70px;
-    max-height:70px;
 
     overflow:hidden;
     text-overflow: ellipsis;
     content: "";
     position: relative;
-    border-top: 2px solid rgba(#00ACC1, 0.25);
+    border-top: $list-border;
 
     .view-complete-link {
         position: absolute;
@@ -44,9 +43,20 @@
         right: 0;
         cursor: pointer;
     }
+
+    @include respond-to("phone") {
+        width: 100%;
+        font-size: 1.2em;
+        
+        height: 80px;
+
+        .view-complete-link { 
+            display: none;
+        }
+    }
 }
 .language-notes__list__element:last-child {
-   border-bottom: 2px solid rgba(#00ACC1, 0.25);
+   border-bottom: $list-border;
 }
 
 .language-notes__list__element:before {
@@ -56,6 +66,6 @@
     position:absolute;
     left:0;
     top:0;
-    background:linear-gradient(transparent 50px, white);
+    background:linear-gradient(to top, white, rgba(255,255,255,0) 20px);
     pointer-events: none;
 }

@@ -5,75 +5,75 @@ export class InMemoryStorageService {
         let languageNotes = [
             { 
                 "id": 1, 
-                "note": "att få sparken från jobbet", 
+                "value": "att få sparken från jobbet", 
                 "translations": ["to get fired"] 
             },
             { 
                 "id": 2, 
-                "note": "knarka, knarkigt", 
+                "value": "knarka, knarkigt", 
                 "translations": ["do drugs"] 
             },
             { 
                 "id": 3, 
-                "note": "att lagra, lagring", 
+                "value": "att lagra, lagring", 
                 "translations": ["to store, storage"] 
             },
             { 
                 "id": 4, 
-                "note": "att ta i som ett djur", 
+                "value": "att ta i som ett djur", 
                 "explanations": ["(c) Anders, träning"] 
             },
             { 
                 "id": 5, 
-                "note": "synvinkel", 
+                "value": "synvinkel", 
                 "translations": ["point of view"],
                 "usages": [ "från/ur min synvinkel" ]
             },
             { 
                 "id": 6, 
-                "note": "tillägna", 
+                "value": "tillägna", 
                 "usages": ["jag ska tillägna dagen med att"],
                 "explanations": ["i will make use of the day by doing"]  
             },
             { 
                 "id": 7, 
-                "note": "inspirerad", 
+                "value": "inspirerad", 
                 "usages" : ["jag är inspirerad av någon"] 
             },
             { 
                 "id": 8, 
-                "note": "att tillägna något",
+                "value": "att tillägna något",
                 "explanations":  ["ta något tillgodo", "to make use of" ] 
             },
             { 
                 "id": 9, 
-                "note": "att klumpa ihop", 
+                "value": "att klumpa ihop", 
                 "translations" : ["lump together", "смешивать в кучу"] 
             },
             { 
                 "id": 10, 
-                "note": "ivrig, ivrigt", 
+                "value": "ivrig, ivrigt", 
                 "translations" : ["eager", "zealous", "усердно"] 
             },
             { 
                 "id": 11, 
-                "note": "flitig", 
+                "value": "flitig", 
                 "translations" : ["diligent", "hard-working"] 
             },
             { 
                 "id": 12, 
-                "note": "ytlig", 
+                "value": "ytlig", 
                 "translations" : ["external", "superficial", "поверхностный"] 
             },
              { 
                 "id": 13, 
-                "note": "petig", 
+                "value": "petig", 
                 "translations" : ["мелочный"],
                 "explanations":  ["för noggrann", "pedantisk" ] 
             },
             { 
                 "id": 14, 
-                "note": "kräsen", 
+                "value": "kräsen", 
                 "translations" : ["picky"],
                 "explanations":  ["om mat t.ex." ] 
             },

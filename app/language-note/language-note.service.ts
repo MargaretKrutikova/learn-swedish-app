@@ -23,7 +23,7 @@ export interface LanguageNote {
 // Uttryck
 // Ordspråk
 
-let languageNotesUrl = "api/languageNotes";
+let languageNotesUrl = "api/languageNotes";;//"http://localhost:8080/api/language-notes";//"api/languageNotes";
 
 @Injectable()
 export class LanguageNoteService {
@@ -33,6 +33,7 @@ export class LanguageNoteService {
 
     getLanguageNotes() : Observable<LanguageNote[]> {
         return this.http.get(languageNotesUrl)
+            //.map(response => response = response.json())
             .map((response: Response) => <LanguageNote[]>(response.json().data || {}))
             .catch(this.exceptionService.handleError);
     }
