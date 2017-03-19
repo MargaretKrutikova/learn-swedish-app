@@ -1,0 +1,14 @@
+
+<div>
+    <span>{{title}}</span>
+
+    <div [formGroup]="formGroup">
+        <div formArrayName="list">
+            <div *ngFor="let listFormControl of formGroup.controls.list.controls; let i=index">
+                <input type="text" [formControlName]="i">
+            </div>
+        </div>
+        <input type="button" value="add" (click)="addListElement()" />
+    </div>
+
+</div>

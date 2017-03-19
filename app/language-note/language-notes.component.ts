@@ -46,6 +46,10 @@ export class LanguageNotesComponent implements OnInit, OnDestroy {
         this.modal.open();
     }
 
+    onEditNote(note: LanguageNote) {
+        this.router.navigate(['/edit-note', note.id]);
+    }
+
     openDetailsIfMobile(note: LanguageNote) {
         if (this.isMobileDevice) {
             this.openDetails(note);

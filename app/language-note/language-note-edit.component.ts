@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Validators, FormGroup, FormArray, FormBuilder, FormControl } from '@angular/forms';
+import { ListViewEditComponent } from '../common/list-view-edit/list-view-edit.component';
 
 import { LanguageNote, LanguageNoteService } from '../language-note/language-note.service';
 
@@ -8,27 +10,60 @@ import { LanguageNote, LanguageNoteService } from '../language-note/language-not
     selector: 'language-note-edit',
 	templateUrl: 'language-note-edit.component.html'
 })
-export class LanguageNoteEditComponent {
-	editLanguageNote : LanguageNote = <LanguageNote>{};
+export class LanguageNoteEditComponent implements OnInit {
+	editNote : LanguageNote = <LanguageNote>{};
+    public noteForm: FormGroup; 
+
+    @ViewChild('translations')
+    translationsListView: ListViewEditComponent;
+
+    @ViewChild('explanations')
+    explanationsListView: ListViewEditComponent;
+
+    @ViewChild('usages')
+    usagesListView: ListViewEditComponent;
 
     constructor(
         private languageNoteService: LanguageNoteService,
-        private _router: Router) { }
+        private route: ActivatedRoute,
+        private fb: FormBuilder) { }
 
-	addNote() {
-        console.log(this.editLanguageNote);
-		if (this.editLanguageNote.id == null) {
-            this.languageNoteService.addLanguageNote(this.editLanguageNote)
+    ngOnInit(): void {
+        this.noteForm = this.fb.group({
+           noteValue: this.fb.control('')
+        });
+
+        this.route.params.forEach((params: Params) => {
+            if (params['id'] !== undefined) {
+                let id = +params['id'];
+                this.languageNoteService.getNoteById(id)
+                    .subscribe(note => {
+                        this.editNote = note;
+                        this.noteForm.controls['noteValue'].setValue(this.editNote.value);
+                    });
+            } 
+       });
+    }
+
+	saveNote() {
+        console.log(this.editNote);
+        
+        this.editNote.value = this.noteForm.controls['noteValue'].value;
+
+        this.editNote.explanations = this.explanationsListView.getCurrentListValues();
+        this.editNote.translations = this.translationsListView.getCurrentListValues();
+        this.editNote.usages = this.usagesListView.getCurrentListValues();
+        
+         this.languageNoteService.saveNote(this.editNote)
                 .subscribe(newNote => this.gotoNotes());
-                
-            return;
-        }
-
-        // save edit: not implemented
 	}
 
-      private gotoNotes() {
+    private transformValueToFormControl(value: String = '') {
+        return new FormControl(value);
+    }
+
+    private gotoNotes() {
         let route = ['language-notes'];
-        this._router.navigate(route);
+       // this.route.navigate(route);
     }
 }

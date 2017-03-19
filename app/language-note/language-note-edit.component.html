@@ -1,14 +1,30 @@
 <h2>Add language note</h2>
 
-
 <div>New note</div>
 
-<div>Name: <input [(ngModel)]="editLanguageNote.value" /></div>
+<div [formGroup]="noteForm">
+    <div>Name: 
+        <input type="text" formControlName="noteValue" />
+    </div>
 
-<div>Translations: <input [(ngModel)]="editLanguageNote.translations" /></div>
+    <list-view-edit 
+        #translations
+        [title]="'Translations:'" 
+        [listValues]="editNote.translations">
+    </list-view-edit>
 
-<div>Explanations: <input [(ngModel)]="editLanguageNote.explanations" /></div>
+    <list-view-edit 
+        #explanations
+        [title]="'Explanations:'" 
+        [listValues]="editNote.explanations">
+    </list-view-edit>
 
-<button (click)="addNote()">Save note</button>
+    <list-view-edit 
+        #usages
+        [title]="'Usages:'" 
+        [listValues]="editNote.usages">
+    </list-view-edit>
 
+    <button (click)="saveNote()">Save note</button>
+</div>
 <p>{{message}}</p>

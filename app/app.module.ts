@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryStorageService } from '../api/in-memory-storage.service';
@@ -19,6 +20,7 @@ import { PaginatorComponent } from './common/paginator/paginator.component';
 
 import { HeroSearchComponent } from './heroes/hero-search.component';
 import { LanguageNoteDetailComponent } from './language-note/language-note-detail.component';
+import { ListViewEditComponent } from './common/list-view-edit/list-view-edit.component';
 
 const WINDOW_PROVIDER: ValueProvider = {
     provide: 'Window',
@@ -35,6 +37,7 @@ const NAVIGATOR_PROVIDER: ValueProvider = {
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpModule,
     Ng2Bs3ModalModule,
@@ -44,6 +47,7 @@ const NAVIGATOR_PROVIDER: ValueProvider = {
     AppComponent,
     HeroSearchComponent,
     LanguageNoteDetailComponent,
+    ListViewEditComponent,
     PaginatorComponent,
     routedComponents
   ],

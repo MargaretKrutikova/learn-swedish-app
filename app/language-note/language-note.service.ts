@@ -5,7 +5,7 @@ import { ExceptionService } from '../common/exception.service';
 
 export interface LanguageNote {
     id: number;
-    note: string;
+    value: string;
     type?: string;
     translations?: string[];
     explanations?: string[];
@@ -38,11 +38,28 @@ export class LanguageNoteService {
             .catch(this.exceptionService.handleError);
     }
 
-    addLanguageNote(note: LanguageNote) : Observable<LanguageNote> {
+    getNoteById(id: Number) : Observable<LanguageNote> {
+        var source = Observable.create(observer => {
+            this.getLanguageNotes().subscribe(notes => {
+                let note = notes.find(n => n.id == id);
+                observer.next(note);
+                observer.complete();
+            });
+        });
+        return source;
+    }
+
+    saveNote(note: LanguageNote) : Observable<LanguageNote> {
         let jsonNote = JSON.stringify(note);
         
-        return this.http.post(`${languageNotesUrl}`, jsonNote)
-                .map((response: Response) => <LanguageNote>(response.json().data || {}))
+        let observable;
+        if (note.id == null) {
+            observable = this.http.post(`${languageNotesUrl}`, jsonNote);
+        } else {
+             observable = this.http.put(`${languageNotesUrl}/${note.id}`, jsonNote);
+        }
+         
+        return observable.map((response: Response) => <LanguageNote>(response.json() || {})) // use response.json().data with real api
                 .catch(this.exceptionService.handleError);
     }
 }
