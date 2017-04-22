@@ -1,5 +1,5 @@
 
-<section class="language-notes">
+<section class="notes">
     <section *ngIf="errorMessage">
         {{errorMessage}}
     </section>
@@ -13,14 +13,19 @@
                 [currentPage]="currentPage">
     </paginator>
 
-    <div class='language-notes__list'>       
-        <div *ngFor="let note of languageNotesPaginated" class="language-notes__list__element"
+    <div class='notes__list'>       
+        <div *ngFor="let note of languageNotesPaginated" 
+            class="notes__list__element"
             (click)="openDetailsIfMobile(note)">
-            <a class="view-complete-link" (click)="openDetails(note)">View complete</a>
-            
+
             <language-note-detail [note]="note"> </language-note-detail> 
 
-            <a (click)="onEditNote(note)">Edit</a>           
+            <div class="note-details__action-list">
+                <span><a class="view-complete-link" (click)="openDetails(note)">View</a></span>
+                <span><a (click)="onEditNote(note)">Edit</a></span>
+                <span><a (click)="onEditNote(note)">Delete</a></span>
+            </div>
+
         </div> 
     </div>
 
@@ -30,7 +35,7 @@
                 [currentPage]="currentPage">
     </paginator>
 
-    <modal #noteDetailModal class="language-notes__details-modal">
+    <modal #noteDetailModal class="notes__details-modal">
         <modal-header [show-close]="true">
             {{selectedNote ? selectedNote.value : ""}}
         </modal-header>

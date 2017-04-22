@@ -2,10 +2,15 @@
 // include-media
 @import "node_modules/include-media/dist/include-media";
 
+// base
+@import "base/layout";
+@import "base/typography";
+
 // helpers
 @import "helpers/module";
 
 // partials
+@import "partials/paginator";
 @import "partials/language-notes";
 @import "partials/language-note-detail";
 

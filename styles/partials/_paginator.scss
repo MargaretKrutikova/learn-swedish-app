@@ -1,0 +1,12 @@
+
+.paginator {
+    padding-top: 20px;
+    width: 30%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.paginator__page {
+    padding: 5px;
+    a { cursor: pointer; }
+}

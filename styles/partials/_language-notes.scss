@@ -1,33 +1,25 @@
 $list-border: 2px solid rgba(#00ACC1, 0.25);
 
-.language-notes {
-    padding: 30px;
+
+.notes {   
+    max-width: 500px;
+    @include respond-to("phone") {
+        width: 100%;
+    }
 }
 
-.language-notes__list {
-    padding-top: 30px;
-}
-
-.language-notes__details-modal {
+.notes__details-modal {
     .modal-content {
         width: 60%;
     }
 }
-
-.language-notes__paginator {
-    padding-top: 20px;
-    width: 30%;
-    text-align: center;
+.notes__list {
+    padding: 30px;
+    padding-left: 0;
 }
 
-.language-notes__paginator__page {
-    padding: 5px;
-    a { cursor: pointer; }
-}
-
-.language-notes__list__element {
+.notes__list__element {
     padding-top: 10px;
-    width: 30%;
     height: 70px;
 
     overflow:hidden;
@@ -36,18 +28,11 @@ $list-border: 2px solid rgba(#00ACC1, 0.25);
     position: relative;
     border-top: $list-border;
 
-    .view-complete-link {
-        position: absolute;
-        font-size: 0.7em;
-        bottom: 0;
-        right: 0;
-        cursor: pointer;
-    }
+    display: flex;
+    justify-content: space-between;
 
     @include respond-to("phone") {
-        width: 100%;
         font-size: 1.2em;
-        
         height: 80px;
 
         .view-complete-link { 
@@ -55,11 +40,11 @@ $list-border: 2px solid rgba(#00ACC1, 0.25);
         }
     }
 }
-.language-notes__list__element:last-child {
+.notes__list__element:last-child {
    border-bottom: $list-border;
 }
 
-.language-notes__list__element:before {
+.notes__list__element:before {
     content:'';
     width:100%;
     height:100%;    
@@ -68,4 +53,12 @@ $list-border: 2px solid rgba(#00ACC1, 0.25);
     top:0;
     background:linear-gradient(to top, white, rgba(255,255,255,0) 20px);
     pointer-events: none;
+}
+
+.note-details__action-list {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    @extend .small-font;
+    span { cursor: pointer; }
 }
