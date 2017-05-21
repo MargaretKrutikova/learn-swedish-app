@@ -1,0 +1,75 @@
+$base-font-size: 1rem;
+$base-line-height: $global-line-height;
+
+.small-font {
+    //font-size: 0.7em;
+}
+
+
+@function pow($number, $exponent) {
+  $value: 1;
+
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $number;
+    }
+  } @else if $exponent < 0 {
+    @for $i from 1 through -$exponent {
+      $value: $value / $number;
+    }
+  }
+
+  @return $value;
+}
+
+$type-scale-base: 4/3.0;
+@function type-scale($level) {
+  $power: pow($type-scale-base, $level );
+  @return $power;
+}
+
+@function line-height($level) {
+  @return map-get($line-heights, $level);
+}
+
+@function calc-line-height($scale) {
+    $font-size: type-scale($scale);
+    $times-base-line: ceil($font-size / $base-line-height);
+
+    // calculate unitless line height
+    @return ($times-base-line * $base-line-height);  // /$font-size
+}
+
+@mixin font-size-ratio($ratio) {
+    font-size: #{type-scale($ratio)}rem;
+}
+
+@mixin type-setting($scale) {
+    font-size: #{type-scale($scale)}rem;
+    line-height: #{calc-line-height($scale)}rem;
+}
+
+// We start by applying a consistent margin to all the typography related elements:
+// The margin-bottom is the same size as our line-height.
+h1, h2, h3, h4, h5, h6,
+p, ul, ol, dl, dd, figure,
+blockquote, details, hr,
+fieldset, pre, table, section {
+  margin: 0 0 #{$base-line-height}rem 0;
+}
+
+h1 {
+    @include type-setting(4);
+}
+h2 {
+    @include type-setting(3);
+}
+h3 {
+    @include type-setting(2);
+}
+h4 {
+    @include type-setting(1);
+}
+h5, h6, body {
+    @include type-setting(0);
+}

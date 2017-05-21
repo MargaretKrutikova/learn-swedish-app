@@ -1,14 +1,11 @@
 
-<div>
-    <span>{{title}}</span>
-
-    <div [formGroup]="formGroup">
-        <div formArrayName="list">
-            <div *ngFor="let listFormControl of formGroup.controls.list.controls; let i=index">
-                <input type="text" [formControlName]="i">
-            </div>
+<div [formGroup]="formGroup" class="list-view-edit">
+    <label formArrayName="list" class="list-view-edit__container">
+        <span class="list-view-edit__container__title">{{title}}</span>
+        <div class="list-view-edit__container__controls">
+            <input *ngFor="let listFormControl of formGroup.controls.list.controls; let i=index"
+                    type="text" [formControlName]="i">
         </div>
-        <input type="button" value="add" (click)="addListElement()" />
-    </div>
-
+    </label>
+    <button class="primary-button" (click)="addListElement()">add</button>
 </div>

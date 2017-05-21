@@ -1,18 +1,21 @@
-<header class="page-header">
-    <div class="page-header__logo">
-        <h1>{{title}}</h1>
-    </div>
-    <nav class="page-header__nav">
-        <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-        <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
-        <a routerLink="/language-notes" routerLinkActive="active">Language notes</a>
+<header class='c-header'>
+    <!--<div class='c-header__logo'>
+        <a href="/">
+       
+        </a>
+    </div>-->
+    <h1 class='header-title'>{{title}}</h1>
+    <nav class='c-header__nav'>
+        <a class='c-nav-link' routerLink='/dashboard' routerLinkActive='active'>Dashboard</a>
+        <a class='c-nav-link'routerLink='/heroes' routerLinkActive='active'>Heroes</a>
+        <a class='c-nav-link' routerLink='/language-notes' routerLinkActive='active'>Language notes</a>
     </nav>
    <!--  <div>
         search input here 
     </div>-->
 </header>
 
-<main class="page-content">
+<main class='page-content'>
     <article>
         <router-outlet></router-outlet>
     </article>

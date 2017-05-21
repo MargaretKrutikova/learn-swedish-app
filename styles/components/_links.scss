@@ -1,0 +1,17 @@
+.c-nav-link {
+    padding: 5px 10px;
+    text-decoration: none;
+    background-color: #eee;
+    border-radius: 4px;
+}
+
+.c-nav-link:visited, .c-nav-link:link {
+  color: #607D8B;
+}
+.c-nav-link:hover {
+  color: #039be5;
+  background-color: #CFD8DC;
+}
+.c-nav-link.active {
+  color: #039be5;
+}

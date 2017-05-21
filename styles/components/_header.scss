@@ -1,0 +1,22 @@
+
+.c-header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-top: -1px;
+    border-bottom: 1px #ddd solid;
+}
+
+.header-title {
+    font-family: 'modum';
+    font-weight: bold;
+}
+.c-header__nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    a {
+        margin-left: 4px;
+    }
+}

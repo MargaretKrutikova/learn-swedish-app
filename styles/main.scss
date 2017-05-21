@@ -1,19 +1,41 @@
+// settings - the most generic, the least specific 
+// Sass variables containing:
+// - fonts
+// - typography sizes
+// - colors
+// - paddings
+// - margins
+// - breakpoints. 
+@import "settings/colors";
+@import "settings/fonts";
+@import "settings/global";
+@import "settings/typography";
 
-// include-media
+// tools - globally used mixins and functions
 @import "node_modules/include-media/dist/include-media";
+@import "tools/mixins";
 
-// base
-@import "base/layout";
-@import "base/typography";
+// generic - reset and/or normalize styles, box-sizing definition, etc. 
+// This is the first layer which generates actual CSS and it affects a lot of the DOM.
+@import "node_modules/normalize-scss/sass/normalize";
+@import "generic/reset";
 
-// helpers
-@import "helpers/module";
+// elements
+@import "elements/page";
+@import "elements/headings";
+@import "elements/buttons";
 
-// partials
-@import "partials/paginator";
-@import "partials/language-notes";
-@import "partials/language-note-detail";
+// objects - like layout
+@import "objects/layout";
 
-button {
-    background-color: deepskyblue; 
-}
+// components
+
+@import "components/buttons";
+@import "components/inputs";
+@import "components/links";
+
+@import "components/header";
+@import "components/paginator";
+@import "components/list-view-edit";
+@import "components/language-notes";
+@import "components/language-note-detail";
