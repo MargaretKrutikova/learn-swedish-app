@@ -1,0 +1,10 @@
+$default-vertical-space-unit: 1.5rem;
+$small-vertical-space-unit: 1rem;
+
+@function calc-height($factor, $vertical-space-unit: $default-vertical-space-unit) {
+    @return $factor * $vertical-space-unit;
+}
+
+@function calc-margin($factor, $vertical-space-unit: $default-vertical-space-unit, $shift: 0px) {
+    @return calc(#{$factor} * #{$vertical-space-unit} - #{$shift});
+}

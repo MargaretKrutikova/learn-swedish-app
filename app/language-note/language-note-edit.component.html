@@ -2,29 +2,32 @@
 
 <div>New note</div>
 
-<div [formGroup]="noteForm">
-    <div>Name: 
-        <input type="text" formControlName="noteValue" />
+<div [formGroup]="noteForm" class="note-edit-form">
+    <label class="label label--default">
+        <span>Name:</span> 
+        <input type="text" class="input input--default" formControlName="noteValue" />
+    </label>
+
+    <div class="note-edit-form__lists">
+        <list-view-edit 
+            #translations
+            [title]="'Translations:'" 
+            [listValues]="editNote.translations">
+        </list-view-edit>
+
+        <list-view-edit 
+            #explanations
+            [title]="'Explanations:'" 
+            [listValues]="editNote.explanations">
+        </list-view-edit>
+
+        <list-view-edit 
+            #usages
+            [title]="'Usages:'" 
+            [listValues]="editNote.usages">
+        </list-view-edit>
     </div>
 
-    <list-view-edit 
-        #translations
-        [title]="'Translations:'" 
-        [listValues]="editNote.translations">
-    </list-view-edit>
-
-    <list-view-edit 
-        #explanations
-        [title]="'Explanations:'" 
-        [listValues]="editNote.explanations">
-    </list-view-edit>
-
-    <list-view-edit 
-        #usages
-        [title]="'Usages:'" 
-        [listValues]="editNote.usages">
-    </list-view-edit>
-
-    <button (click)="saveNote()">Save note</button>
+    <button class="btn btn--larger" (click)="saveNote()">Save note</button>
 </div>
 <p>{{message}}</p>

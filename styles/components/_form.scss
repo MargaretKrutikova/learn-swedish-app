@@ -1,0 +1,15 @@
+.label {
+    display: flex;
+    align-items: center;
+    span {
+        margin-right: calc-margin(1, $small-vertical-space-unit);
+    }
+}
+
+.label--default {
+    height: calc-height(2);
+}
+
+.label--small {
+    height: calc-height(5/2, $small-vertical-space-unit);
+}

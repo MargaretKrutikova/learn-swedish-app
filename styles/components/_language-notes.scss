@@ -1,5 +1,4 @@
-$list-border: 2px solid rgba(#00ACC1, 0.25);
-
+$list-border: 1px solid rgba(#00ACC1, 0.25);
 
 .notes {   
     max-width: 500px;
@@ -8,21 +7,14 @@ $list-border: 2px solid rgba(#00ACC1, 0.25);
     }
 }
 
-.notes__details-modal {
-    .modal-content {
-        width: 60%;
-    }
-}
 .notes__list {
-    padding: $vertical-space-unit;
+    padding: calc-margin(1);
     padding-left: 0;
 }
 
 .notes__list__element {
-    //padding-top: 10px;
-    margin-top: -2px;
-    height: calc($vertical-space-unit * 3);
-    box-sizing: border-box;
+    margin-top: -0.5px;
+    height: calc-height(3);
 
     overflow:hidden;
     text-overflow: ellipsis;
@@ -44,23 +36,4 @@ $list-border: 2px solid rgba(#00ACC1, 0.25);
 }
 .notes__list__element:last-child {
    border-bottom: $list-border;
-}
-
-.notes__list__element:before {
-    content:'';
-    //width:100%;
-    height:100%;    
-    position:absolute;
-    left:0;
-    top:0;
-    background:linear-gradient(to top, white, rgba(255,255,255,0) 20px);
-    pointer-events: none;
-}
-
-.note-details__action-list {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-   // @extend .small-font;
-    span { cursor: pointer; }
 }

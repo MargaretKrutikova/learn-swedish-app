@@ -1,14 +1,30 @@
 
-.note-details {
-    color: black;
-    //font-size: 1.2em;
+.notes__details-modal {
+    .modal-content {
+        width: 60%;
+    }
 }
 
 .note-details__properties {
-    //font-size: 0.7em;
     color: rgba(black, 0.7);
+    @extend .small-font;
 }
 
-.note-details__title {
-    //padding-bottom: 5px;
+.note-details__action-list {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    @extend .small-font;
+    span { cursor: pointer; }
+}
+
+ .note-details--list  { 
+     display: block;
+     .note-details { 
+         padding-top: calc-margin(1/2); 
+    }
+     .note-details__properties {
+         height: calc-height(1); 
+         overflow: hidden;
+     }
 }

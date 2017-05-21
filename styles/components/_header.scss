@@ -3,8 +3,11 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    margin-top: -1px;
+    margin-top: -2px;
     border-bottom: 1px #ddd solid;
+
+    padding-left: calc-margin(2);
+    padding-top: calc-margin(1/2);
 }
 
 .header-title {
@@ -15,8 +18,5 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-
-    a {
-        margin-left: 4px;
-    }
+    a { margin-left: 4px; }
 }

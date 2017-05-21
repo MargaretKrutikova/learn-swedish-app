@@ -1,0 +1,7 @@
+.input {
+    box-sizing: border-box;
+}
+
+.input--default {
+    height: calc-height(2, $small-vertical-space-unit);
+}
