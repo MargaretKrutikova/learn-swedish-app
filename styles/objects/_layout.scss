@@ -1,10 +1,5 @@
 
-body {
-    display: flex;
-    flex-flow: column nowrap;
-}
-
 .page-content {
-    padding-top: calc-margin(3/2);
-    padding-left: calc-margin(2);
+    //padding-top: calc-rhythm-distance(3/2);
+    padding-left: calc-rhythm-distance(2);
 }

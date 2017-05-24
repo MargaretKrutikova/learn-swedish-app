@@ -3,5 +3,5 @@
 }
 
 .input--default {
-    height: calc-height(2, $small-vertical-space-unit);
+    height: calc-rhythm-distance(2, $small-vertical-space-unit);
 }

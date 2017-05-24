@@ -1,6 +1,7 @@
-$list-border: 1px solid rgba(#00ACC1, 0.25);
+$list-border: 1.5px solid rgba(#00ACC1, 0.25);
 
-.notes {   
+.notes { 
+    padding-top: calc-rhythm-distance(3/2);  
     max-width: 500px;
     @include respond-to("phone") {
         width: 100%;
@@ -8,14 +9,13 @@ $list-border: 1px solid rgba(#00ACC1, 0.25);
 }
 
 .notes__list {
-    padding: calc-margin(1);
+    padding: calc-rhythm-distance(1);
     padding-left: 0;
 }
 
 .notes__list__element {
     margin-top: -0.5px;
-    height: calc-height(3);
-
+    height: calc-rhythm-distance(3.5);
     overflow:hidden;
     text-overflow: ellipsis;
     content: "";
@@ -24,6 +24,7 @@ $list-border: 1px solid rgba(#00ACC1, 0.25);
 
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     @include respond-to("phone") {
         //font-size: 1.2em;

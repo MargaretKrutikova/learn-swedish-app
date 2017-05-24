@@ -18,13 +18,7 @@
     span { cursor: pointer; }
 }
 
- .note-details--list  { 
-     display: block;
-     .note-details { 
-         padding-top: calc-margin(1/2); 
-    }
-     .note-details__properties {
-         height: calc-height(1); 
-         overflow: hidden;
-     }
+ .note-details--list  .note-details__properties {
+    height: calc-rhythm-distance(1.5); 
+    overflow: hidden;
 }

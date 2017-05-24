@@ -3,10 +3,10 @@
     box-sizing: border-box;
 }
 .btn--default {
-    height: calc-height(1);
+    height: calc-rhythm-distance(1);
 }
 .btn--larger {
-    height: calc-height(3/2);
+    height: calc-rhythm-distance(3/2);
 }
 .btn--rounded {
     border-radius:14px;

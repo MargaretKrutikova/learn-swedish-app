@@ -1,8 +1,15 @@
+//$global-font-size: 12px;
+
+language-note-edit {
+    @include type-setting(0, 0.8em);
+}
+
 .note-edit-form {
-    padding-top: calc-margin(1/2);
+    padding-top: calc-rhythm-distance(1/2);
 }
 
 .note-edit-form__lists {
     display: flex;
-    padding-top: calc-margin(1/2);
+    //flex-direction: column;
+    padding-top: calc-rhythm-distance(1/2);
 }

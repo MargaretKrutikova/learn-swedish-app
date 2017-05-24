@@ -33,15 +33,15 @@ $type-scale-base: 4/3.0;
     $times-base-line: ceil($font-size / $base-line-height);
 
     // calculate unitless line height
-    @return ($times-base-line * $base-line-height);  // /$font-size
+    @return ($times-base-line * $base-line-height);  // / $font-size;
 }
 
-@mixin font-size-ratio($ratio) {
-    font-size: #{type-scale($ratio)}rem;
+@mixin font-size-ratio($ratio, $font-size: $base-font-size) {
+    font-size: type-scale($ratio) * $font-size;
 }
 
-@mixin type-setting($scale) {
-    font-size: #{type-scale($scale)}rem;
+@mixin type-setting($scale, $font-size: $base-font-size) {
+    font-size: type-scale($scale) * $font-size;
     line-height: #{calc-line-height($scale)}rem;
 }
 
