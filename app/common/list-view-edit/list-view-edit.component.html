@@ -5,6 +5,7 @@
         <div class="list-view-edit__container__controls">
             <label class="label label--small" *ngFor="let listFormControl of formGroup.controls.list.controls; let i=index">
                 <input class="input input--default" type="text" [formControlName]="i">
+                <button class="btn btn--icon btn--rounded list-view-edit__remove-btn" (click)="removeListElement(i)">x</button>
             </label>
         </div>
     </div>

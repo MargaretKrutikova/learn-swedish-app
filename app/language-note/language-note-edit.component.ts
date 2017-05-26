@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Validators, FormGroup, FormArray, FormBuilder, FormControl } from '@angular/forms';
 import { ListViewEditComponent } from '../common/list-view-edit/list-view-edit.component';
 
@@ -26,6 +26,7 @@ export class LanguageNoteEditComponent implements OnInit {
     constructor(
         private languageNoteService: LanguageNoteService,
         private route: ActivatedRoute,
+        private router: Router,
         private fb: FormBuilder) { }
 
     ngOnInit(): void {
@@ -64,6 +65,6 @@ export class LanguageNoteEditComponent implements OnInit {
 
     private gotoNotes() {
         let route = ['language-notes'];
-       // this.route.navigate(route);
+        this.router.navigate(route);
     }
 }

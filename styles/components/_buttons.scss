@@ -8,6 +8,13 @@
 .btn--larger {
     height: calc-rhythm-distance(3/2);
 }
+
+.btn--icon {
+    height: calc-rhythm-distance(1);
+    width: calc-rhythm-distance(1);
+    line-height: 1;
+}
+
 .btn--rounded {
     border-radius:14px;
 }

@@ -23,33 +23,41 @@ export class ListViewEditComponent implements OnInit {
 
     formGroup: FormGroup;
 
-    constructor(private formBuilder: FormBuilder) {
-    }
+    constructor(private formBuilder: FormBuilder) { }
 
     ngOnInit() { 
         let list = this.formBuilder.array([this.stringToFormControl()]);
-        this.formGroup = this.formBuilder.group({
-            list: list
-        });
+
+        this.formGroup = this.formBuilder.group({ });
+        this.setListFormArray(list);
+    }
+
+    removeListElement(i: number) {
+        let list = this.getListFormArray();
+        list.removeAt(i);
+
+        if (list.length == 0) {
+            list.push(this.stringToFormControl());
+        }
     }
 
     addListElement() {
-        let control = <FormArray> this.formGroup.controls['list'];
-        control.push(this.stringToFormControl());
+        this.getListFormArray().push(this.stringToFormControl());
     }
 
     getCurrentListValues() : string[] {
-        return this.formGroup.controls['list'].value;
+        return (<[string]>this.getListFormArray().value).filter(val => val != null && val != "");
     }
 
     private recreateListFormArray() {
         if (!this.listValues) return;
-        let list = this.formBuilder.array([]);
 
+        let list = this.formBuilder.array([]);
         for (let value of this.listValues) {
             list.push(this.stringToFormControl(value));
         }
-        this.formGroup.controls['list'] = list;
+
+        this.setListFormArray(list);
     }
 
     private stringToFormControl(value: String = '') : FormControl {
@@ -60,4 +68,11 @@ export class ListViewEditComponent implements OnInit {
         );
         return control;
     }
+
+    private getListFormArray() : FormArray {
+        return <FormArray> this.formGroup.controls['list'];
+    } 
+    private setListFormArray(list : FormArray)  {
+        this.formGroup.controls['list'] = list;
+    } 
 }

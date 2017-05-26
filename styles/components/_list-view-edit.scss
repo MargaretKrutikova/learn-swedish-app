@@ -20,6 +20,10 @@
     }
 }
 
+.list-view-edit__remove-btn {
+    margin-left: calc-rhythm-distance(1/2, $small-vertical-space-unit);
+}
+
 .list-view-edit__add-btn {
     margin-right: auto;
     display: block;
