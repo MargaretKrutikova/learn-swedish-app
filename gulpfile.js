@@ -2,6 +2,8 @@ var gulp = require('gulp');
 var del = require('del');
 var $ = require('gulp-load-plugins')({ lazy: true });
 var sass = require('gulp-sass');
+var svgSprite	= require('gulp-svg-sprite');
+
    // autoprefixer = require('gulp-autoprefixer'),
 var browserSync = require('browser-sync').create();
 var lite = require('lite-server');
@@ -59,6 +61,23 @@ gulp.task('serve-css', ['watch-css', 'watch-html'], function(done) {
     browserSync.init({
       proxy: 'http://localhost:8000'
     });
+});
+
+gulp.task('build-svg', function() {
+  config	= { 
+    mode : { 
+         symbol: {
+            dest: '.',
+            sprite: 'sprite.svg'
+        }
+    }
+  };
+  return gulp.src('icons/*.svg', {cwd: ''})
+    .pipe(svgSprite(config))
+		.on('error', function(error){
+			/* error handling ... */
+		})
+    .pipe(gulp.dest('sprite'));
 });
 
 //--------------------------------------------------------------

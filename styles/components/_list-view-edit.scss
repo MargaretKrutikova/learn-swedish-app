@@ -30,6 +30,9 @@
 
 .list-view-edit__remove-btn {
     margin-left: calc-rhythm-distance(1/2, $small-vertical-space-unit);
+    padding: calc-rhythm-distance(1/2, $small-vertical-space-unit);
+    cursor: pointer;
+    display: block;
 }
 
 .list-view-edit__add-btn {

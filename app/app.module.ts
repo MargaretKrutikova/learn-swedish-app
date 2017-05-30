@@ -17,6 +17,7 @@ import { HeroService } from './heroes/hero.service';
 import { LanguageNoteService } from './language-note/language-note.service';
 import { ExceptionService } from './common/exception.service';
 import { PaginatorComponent } from './common/paginator/paginator.component';
+import { IconComponent } from './common/icon.component';
 
 import { HeroSearchComponent } from './heroes/hero-search.component';
 import { LanguageNoteDetailComponent } from './language-note/language-note-detail.component';
@@ -49,6 +50,7 @@ const NAVIGATOR_PROVIDER: ValueProvider = {
     LanguageNoteDetailComponent,
     ListViewEditComponent,
     PaginatorComponent,
+    IconComponent,
     routedComponents
   ],
   providers: [

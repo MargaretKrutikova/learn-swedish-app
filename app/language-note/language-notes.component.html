@@ -21,9 +21,15 @@
             <language-note-detail class="note-details--list" [note]="note"> </language-note-detail> 
 
             <div class="note-details__action-list">
-                <span><a class="view-complete-link" (click)="openDetails(note)">View</a></span>
-                <span><a (click)="onEditNote(note)">Edit</a></span>
-                <span><a (click)="onEditNote(note)">Delete</a></span>
+                <a class="hide-mobile" (click)="openDetails(note)">View</a>
+                <a (click)="onEditNote(note)">
+                    <span class="hide-mobile">Edit</span>
+                    <svg-icon class="show-mobile" name="edit"></svg-icon>
+                </a>
+                <a (click)="onEditNote(note)">
+                    <span class="hide-mobile">Delete</span>
+                    <svg-icon class="show-mobile" name="delete"></svg-icon>
+                </a>
             </div>
 
         </div> 
