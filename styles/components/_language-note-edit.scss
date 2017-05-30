@@ -2,6 +2,10 @@
 
 language-note-edit {
     @include type-setting(0, 0.8em);
+
+    @include respond-to("phone") {
+          @include type-setting(0);
+     }
 }
 
 .note-edit-form {
@@ -12,4 +16,8 @@ language-note-edit {
     display: flex;
     //flex-direction: column;
     padding-top: calc-rhythm-distance(1/2);
+
+     @include respond-to("phone") {
+         flex-direction: column;
+     }
 }

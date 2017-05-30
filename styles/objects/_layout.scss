@@ -2,4 +2,20 @@
 .page-content {
     //padding-top: calc-rhythm-distance(3/2);
     padding-left: calc-rhythm-distance(2);
+     @include respond-to("phone") {
+      padding-left: calc-rhythm-distance(3/2, $small-vertical-space-unit);
+    }
+}
+
+.hide-mobile {
+    display: block!important;
+     @include respond-to("phone") {
+         display: none!important;
+    }
+}
+.show-mobile {
+     display: none!important;
+     @include respond-to("phone") {
+         display: block!important;;
+    }
 }

@@ -18,17 +18,18 @@
   //min-height: 100%; /* [3] */
 //}
 
-body {
-  //font-size: 1em;
-  //font-family: 'noto-sans', arial, sans-serif;
-  @include respond-to("phone") {
-      //font-size: 0.8em;
-  }
-}
+
 
 html {
     font-size: $global-font-size;
     line-height: $global-line-height;
+
+    @include respond-to("phone") {
+      font-size: $mobile-font-size;
+    }
+
+    overflow-y: scroll; /* [2] */
+    min-height: 100%; /* [3] */
 }
 
 body {

@@ -8,12 +8,25 @@
 .note-details__properties {
     color: rgba(black, 0.7);
     @extend .small-font;
+
+    @include respond-to("phone") {
+        @include type-setting(0, $mobile-font-size);
+    }
+}
+
+.note-details__title {
+    @include respond-to("phone") {
+        @include type-setting(2, 0.9 * $mobile-font-size);
+        white-space: nowrap;
+    }
 }
 
 .note-details__action-list {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+    justify-content: space-around;
+    height: 100%;
     @extend .small-font;
     span { cursor: pointer; }
 }

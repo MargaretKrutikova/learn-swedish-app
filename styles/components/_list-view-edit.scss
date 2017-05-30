@@ -1,6 +1,10 @@
 
 .list-view-edit {
-    margin-bottom: calc-rhythm-distance(2, $small-vertical-space-unit);    
+    margin-bottom: calc-rhythm-distance(2, $small-vertical-space-unit);  
+
+     @include respond-to("phone") {
+         margin-bottom: calc-rhythm-distance(1/2, $small-vertical-space-unit);
+     }  
 }
 
 .list-view-edit__container {
@@ -9,6 +13,10 @@
 
     margin-bottom: calc-rhythm-distance(1, $small-vertical-space-unit);
     padding-right: calc-rhythm-distance(2, $small-vertical-space-unit);
+
+     @include respond-to("phone") {
+         flex-direction: row;
+     }
 }
 
 .list-view-edit__container__controls {
@@ -28,4 +36,10 @@
     margin-right: auto;
     display: block;
     margin-right: 0;
+
+     @include respond-to("phone") {
+          margin-right: calc-rhythm-distance(2, $small-vertical-space-unit);;
+          margin-left: auto;
+          margin-top: -calc-rhythm-distance(4, $small-vertical-space-unit)
+     }
 }
