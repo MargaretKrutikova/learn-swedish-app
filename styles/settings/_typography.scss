@@ -1,4 +1,4 @@
-$base-font-size: 1rem;
+$base-font-size: 1em;
 $base-line-height: $global-line-height;
 
 
@@ -54,16 +54,16 @@ fieldset, pre, table, section {
   margin: 0 0 #{$base-line-height}rem 0;
 }
 
-h1 {
+h1, .h1-like {
     @include type-setting(4);
 }
-h2 {
+h2, .h2-like {
     @include type-setting(3);
 }
-h3 {
+h3, .h3-like {
     @include type-setting(2);
 }
-h4 {
+h4, .h4-like {
     @include type-setting(1);
 }
 h5, h6, body {

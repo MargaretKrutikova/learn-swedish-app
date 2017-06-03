@@ -2,14 +2,16 @@
     display: flex;
     align-items: center;
     span {
-        margin-right: calc-rhythm-distance(1, $small-vertical-space-unit);
+        //margin-right: calc-rhythm-distance(1, $small-vertical-space-unit);
     }
 }
 
-.label--default {
-    height: calc-rhythm-distance(2);
+.label--column {
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.label--small {
-    height: calc-rhythm-distance(5/2, $small-vertical-space-unit);
+.input-title {
+    display: inline-block;
+    padding: calc-rhythm-distance(1, $small-vertical-space-unit) 0;
 }

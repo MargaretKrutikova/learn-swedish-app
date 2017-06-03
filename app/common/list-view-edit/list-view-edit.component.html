@@ -1,16 +1,20 @@
 
 <div [formGroup]="formGroup" class="list-view-edit">
-    <div formArrayName="list" class="list-view-edit__container">
-        <label class="label label--small list-view-edit__container__title">{{title}}</label>
-        <div class="list-view-edit__container__controls">
-            <label class="label label--small" *ngFor="let listFormControl of formGroup.controls.list.controls; let i=index">
-                <input class="input input--default" type="text" [formControlName]="i">
 
-                <span class="list-view-edit__remove-btn" (click)="removeListElement(i)">
-                    <svg-icon name="remove"></svg-icon>
-                </span>
+    <div formArrayName="list" class="list-view-edit__container flex-column">
+        <div class="input-title list-view-edit__title">
+            {{title}}
+            <svg-icon class="hide-non-mobile list-view-edit__add-btn-icon" (click)="addListElement()" name="add"></svg-icon>
+        </div>
+
+        <div class="list-view-edit__controls flex-column">
+            <label class="label list-view-edit__control" *ngFor="let listFormControl of formGroup.controls.list.controls; let i=index">               
+                <input class="input list-view-edit__control__input" type="text" [formControlName]="i">
+                <svg-icon class="list-view-edit__remove-btn" (click)="removeListElement(i)" name="remove"></svg-icon>
             </label>
         </div>
     </div>
-    <button class="btn btn--larger btn--rounded list-view-edit__add-btn" (click)="addListElement()">add</button>
+
+    <button class="btn btn--larger btn--rounded list-view-edit__add-btn hide-mobile" (click)="addListElement()">add</button>
+
 </div>
