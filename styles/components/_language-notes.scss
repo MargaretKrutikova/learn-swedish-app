@@ -1,7 +1,7 @@
 $list-border: 1.5px solid rgba(#00ACC1, 0.25);
 
 .notes { 
-    padding-top: calc-rhythm-distance(3/2);  
+    padding-top: calc-rhythm-distance(1);  
     max-width: 500px;
     @include respond-to("phone") {
         @include type-setting(1, $mobile-font-size);
@@ -9,8 +9,7 @@ $list-border: 1.5px solid rgba(#00ACC1, 0.25);
 }
 
 .notes__list {
-    padding: calc-rhythm-distance(1);
-    padding-left: 0;
+    padding: calc-rhythm-distance(1) 0;
 }
 
 .notes__list__element {

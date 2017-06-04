@@ -2,12 +2,25 @@
 @mixin respond-to($breakpoint) { 
   @if $breakpoint == phone {
     /* Smartphones (portrait and landscape) ----------- */
+    @media only screen and (min-width : 320px) and (max-width : 670px) {
+        @content;
+    }
+  } 
+  @else if $breakpoint == "phone-portrait" {
+    /* Smartphones landscape only ----------- */
     @media only screen and (min-width : 320px) and (max-width : 480px) {
         @content;
     }
-  } @else if $breakpoint == ">phone" {
+  } 
+   @else if $breakpoint == "phone-landscape" {
+    /* Smartphones landscape only ----------- */
+    @media only screen and (min-width : 481px) and (max-width : 670px) {
+        @content;
+    }
+  } 
+  @else if $breakpoint == ">phone" {
     /* All screens bigger than phones ----------- */
-    @media only screen and (min-width : 481px) {
+    @media only screen and (min-width : 671px) {
         @content;
     }
   } 

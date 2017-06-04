@@ -11,6 +11,13 @@ language-note-edit {
     padding-top: calc-rhythm-distance(1/2);
 }
 
+.note-edit-form__action-title {
+    @extend .h3-like;
+    @include respond-to("phone") {
+        @include type-setting(2, $mobile-font-size);
+    }
+}
+
 .note-edit-form__lists {
     display: flex;
     @include respond-to(">phone") {

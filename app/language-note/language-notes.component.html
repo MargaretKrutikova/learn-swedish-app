@@ -3,9 +3,6 @@
     <section *ngIf="errorMessage">
         {{errorMessage}}
     </section>
-    <div>
-        <a routerLink="/new-note" routerLinkActive="active">Create new note</a>
-    </div>
 
     <paginator [totalCountSubscription]="totalNotesChange" 
                 [itemsPerPage]="4" 

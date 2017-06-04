@@ -8,5 +8,21 @@
     //border-width: 0 0 0.5px 0;
     //border-style: solid;
     padding: calc-rhythm-distance(1/2, $small-vertical-space-unit);
+}
 
+.input-title {
+    display: inline-block;
+    padding: calc-rhythm-distance(1, $small-vertical-space-unit) 0;
+    display: block;
+}
+
+@include respond-to("phone-landscape") {
+    .input, .input-title {
+        width: 60vw;
+    }
+}
+@include respond-to("phone-portrait") {
+    .input, .input-title {
+        width: 75vw;
+    }
 }

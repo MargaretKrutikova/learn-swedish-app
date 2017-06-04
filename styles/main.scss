@@ -6,11 +6,11 @@
 // - paddings
 // - margins
 // - breakpoints. 
+@import "settings/global";
 @import "settings/colors";
 @import "settings/fonts";
-@import "settings/global";
-@import "settings/typography";
 @import "settings/vertical-rhythm";
+@import "settings/typography";
 
 // tools - globally used mixins and functions
 @import "node_modules/include-media/dist/include-media";

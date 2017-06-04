@@ -1,34 +1,22 @@
 
 .list-view-edit__control {
-    @include respond-to("phone") {
-        display: flex;
-        justify-content: space-between;
-    }
-
     margin-bottom: calc-rhythm-distance(1, $small-vertical-space-unit);
     &:nth-child(odd) {
         //margin-bottom: calc-rhythm-distance(1, $small-vertical-space-unit, 0.5px);
     }
 }
 
-.list-view-edit__control__input {
-    flex: 1 1 auto;
-}
-
-.list-view-edit__remove-btn {
+.list-view-edit__btn-icon {
     cursor: pointer;
     padding-left: calc-rhythm-distance(1, $small-vertical-space-unit);
 }
 
-.list-view-edit__add-btn {
-    margin-left: auto;
-    display: block;
-    margin-right: 0;
-}
-
-.list-view-edit__title {
-    @include respond-to("phone") {
+@include respond-to("phone") {
+    .list-view-edit__control {
         display: flex;
-        justify-content: space-between;
+    }
+    .list-view-edit__title {
+        display: flex;
+        align-items: center;
     }
 }

@@ -2,15 +2,15 @@
 <div [formGroup]="formGroup" class="list-view-edit">
 
     <div formArrayName="list" class="list-view-edit__container flex-column">
-        <div class="input-title list-view-edit__title">
-            {{title}}
-            <svg-icon class="hide-non-mobile list-view-edit__add-btn-icon" (click)="addListElement()" name="add"></svg-icon>
+        <div class="list-view-edit__title">
+            <span class="input-title">{{title}}</span>
+            <svg-icon class="hide-non-mobile list-view-edit__btn-icon" (click)="addListElement()" name="add"></svg-icon>
         </div>
 
         <div class="list-view-edit__controls flex-column">
             <label class="label list-view-edit__control" *ngFor="let listFormControl of formGroup.controls.list.controls; let i=index">               
                 <input class="input list-view-edit__control__input" type="text" [formControlName]="i">
-                <svg-icon class="list-view-edit__remove-btn" (click)="removeListElement(i)" name="remove"></svg-icon>
+                <svg-icon class="list-view-edit__btn-icon" (click)="removeListElement(i)" name="remove"></svg-icon>
             </label>
         </div>
     </div>

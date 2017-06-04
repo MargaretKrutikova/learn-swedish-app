@@ -3,7 +3,7 @@
     //padding-top: calc-rhythm-distance(3/2);
     padding-left: calc-rhythm-distance(2);
      @include respond-to("phone") {
-      padding: 0 calc-rhythm-distance(3/2, $small-vertical-space-unit);
+        padding: 0 calc-rhythm-distance(3/2, $small-vertical-space-unit);
     }
 }
 
