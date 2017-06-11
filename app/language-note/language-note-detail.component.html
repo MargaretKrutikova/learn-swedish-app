@@ -7,24 +7,31 @@
         <span>{{note.type}}</span>
         
         <div class="note-details__translations" *ngIf="note.translations">
-            <span *ngFor="let translation of note.translations; let i = index">{{translation}}<span *ngIf="i != note.translations.length - 1">,</span>
+            <span *ngFor="let translation of note.translations; let i = index">{{translation}}
+                <span *ngIf="i != note.translations.length - 1">,</span>
             </span>
         </div>
         
         <div class="note-details__explanations" *ngIf="note.explanations">
-            explanations:
+             <span *ngFor="let explanation of note.explanations; let i = index">{{explanation}}
+                <span *ngIf="i != note.explanations.length - 1">,</span>
+            </span>
+            <!--explanations:
             <span *ngIf="note.explanations.length == 1">{{note.explanations[0]}}</span>
             <ul *ngIf="note.explanations.length > 1">
                 <li *ngFor="let explanation of note.explanations">{{explanation}}</li>
-            </ul>
+            </ul>-->
         </div>
 
         <div class="note-details__usages" *ngIf="note.usages">
-            usages:
+            <span *ngFor="let usage of note.usages; let i = index">{{usage}}
+                <span *ngIf="i != note.usages.length - 1">,</span>
+            </span>
+            <!--usages:
             <span *ngIf="note.usages.length == 1">{{note.usages[0]}}</span>
             <ul *ngIf="note.usages.length > 1">
                 <li *ngFor="let usage of note.usages">{{usage}}</li>
-            </ul>
+            </ul>-->
         </div>
     </div>
 </div>

@@ -2,6 +2,10 @@
 .notes__details-modal {
     .modal-content {
         width: 60%;
+         @include respond-to("phone") {
+             width: 100%;
+             top: calc-rhythm-distance(2.5);
+         }
     }
 }
 
@@ -22,6 +26,9 @@
 }
 
 .note-details__action-list {
+    position: absolute;
+    right: 0;
+
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -29,9 +36,32 @@
     height: 100%;
     @extend .small-font;
     span { cursor: pointer; }
+
+    background-color: white;
+
+    &:before {
+        content: "";
+        position: absolute;
+        display: block;
+        left: calc-rhythm-distance(-3);
+        width: calc-rhythm-distance(3);
+        height: 100%;
+        top: 0;
+        background: linear-gradient(270deg, rgba(255,255,255,1), rgba(255,255,255,0)); 
+    }
+}
+ .note-details--list  {
+    &:after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: calc-rhythm-distance(1);
+        bottom: 0;
+        background: linear-gradient(0deg, rgba(255,255,255,1), rgba(255,255,255,0)); 
+    }
 }
 
  .note-details--list  .note-details__properties {
     height: calc-rhythm-distance(1.5); 
-    overflow: hidden;
 }
